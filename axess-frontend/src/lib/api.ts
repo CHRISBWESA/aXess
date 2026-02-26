@@ -2,9 +2,8 @@
 /// <reference types="vite/client" />
 
 // ── Base URL ──────────────────────────────────────────────────────────────────
-// Always use /api as a relative path — Vite proxies it to the backend.
-// Do NOT set VITE_API_URL in your .env for local dev; remove it if it exists.
-const API_BASE = '/api';
+// Local: /api (Vite proxy → backend). Production (Vercel): set VITE_API_URL to your Render API URL + /api
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
 const getToken = (): string | null => {
   try { return localStorage.getItem('authToken'); }
