@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Report = require('../models/Report');
+const Report = require('../models/report');
 const { protect, adminOnly } = require('../middleware/auth');
 
 // Get all reports → only admins
