@@ -21,12 +21,7 @@ const Login: React.FC = () => {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/auth/check-status', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim() }),
-      });
-      const data = await res.json();
+      const data = await authAPI.checkStatus(email.trim());
 
       setStatusInfo(data);
 
@@ -54,7 +49,7 @@ const Login: React.FC = () => {
 
       setStep(2);
     } catch (err: any) {
-      setError('Network error. Please check your connection and try again.');
+      setError(err?.message || 'Network error. Please check your connection and try again.');
     } finally {
       setLoading(false);
     }
