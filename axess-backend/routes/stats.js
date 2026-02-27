@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require('../models/User');
 const Room = require('../models/Room');
 const Request = require('../models/Request');
-const Report = require('../models/Report');
+const Report = require('../models/report');
 const { protect, adminOnly } = require('../middleware/auth');
 
 // GET /api/stats/overview
